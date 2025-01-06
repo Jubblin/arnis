@@ -30,8 +30,7 @@ jobs:
       uses: dtolnay/rust-toolchain@v1
       with:
         toolchain: stable
-        target: ${{ matrix.os == 'windows-latest' && 'x86_64-pc-windows-msvc' || 'x86_64-unknown-linux-gnu' || 'x86_64-apple-darwin' || 'aarch64-apple-darwin'}}
-
+        targets: ${{ matrix.os == 'windows-latest' && 'x86_64-pc-windows-msvc' || 'x86_64-unknown-linux-gnu' || 'x86_64-apple-darwin' || 'aarch64-apple-darwin'}}
         components: clippy
 
     - name: Check formatting
