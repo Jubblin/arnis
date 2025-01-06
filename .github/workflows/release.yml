@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [windows-latest, macos-latest, ubuntu-]
     needs: build
     steps:
     - name: Checkout code
@@ -29,6 +29,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          builds/${{ matrix.os }}/arnis.exe
+          builds/${{ matrix.os }}/arnis*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
